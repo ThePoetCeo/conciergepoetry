@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Concierge Poetry — Hospitality That Feels Human Again</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --gold: #B8955A;
+    --gold-light: #D4AF78;
+    --gold-pale: #E8D5B0;
+    --dark: #0E0D0B;
+    --dark-mid: #1A1814;
+    --dark-surface: #221F1A;
+    --cream: #F5F0E8;
+    --cream-mid: #EDE6D8;
+    --text-light: #C8BDA8;
+    --text-muted: #857A6A;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'Jost', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--dark);
+    color: var(--cream);
+    font-family: var(--sans);
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1.5rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(to bottom, rgba(14,13,11,0.95) 0%, transparent 100%);
+  }
+
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: var(--gold-light);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--gold-light); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-image-side {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-image-side img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    filter: brightness(0.55) sepia(0.2);
+  }
+
+  .hero-image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, transparent 60%, var(--dark) 100%);
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 8rem 4rem 4rem 3rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.68rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 2rem;
+  }
+
+  .hero-headline {
+    font-family: var(--serif);
+    font-size: clamp(2.8rem, 4vw, 4.2rem);
+    font-weight: 300;
+    line-height: 1.12;
+    color: var(--cream);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-headline em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  .hero-sub {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    line-height: 1.8;
+    max-width: 420px;
+    margin-bottom: 3rem;
+    font-weight: 300;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    border: 1px solid var(--gold);
+    color: var(--gold-light);
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.35s;
+    background: transparent;
+    cursor: pointer;
+    align-self: flex-start;
+  }
+
+  .btn-primary:hover {
+    background: var(--gold);
+    color: var(--dark);
+  }
+
+  /* DIVIDER */
+  .section-divider {
+    width: 60px;
+    height: 1px;
+    background: var(--gold);
+    margin: 0 auto 2rem;
+  }
+
+  /* PROBLEM SECTION */
+  .problem {
+    background: var(--dark-mid);
+    padding: 8rem 3rem;
+    text-align: center;
+  }
+
+  .problem-eyebrow {
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+  }
+
+  .problem-headline {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 3.5vw, 3.2rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--cream);
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    line-height: 1.3;
+  }
+
+  .problem-body {
+    font-size: 1rem;
+    color: var(--text-light);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.9;
+  }
+
+  /* SERVICES */
+  .services {
+    padding: 8rem 3rem;
+    background: var(--dark);
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 5rem;
+  }
+
+  .section-eyebrow {
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+
+  .section-headline {
+    font-family: var(--serif);
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    font-weight: 300;
+    color: var(--cream);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .service-card {
+    background: var(--dark-surface);
+    padding: 3rem 2.5rem;
+    border-top: 1px solid var(--gold);
+    position: relative;
+    transition: background 0.3s;
+  }
+
+  .service-card:hover {
+    background: #2A261F;
+  }
+
+  .service-num {
+    font-family: var(--serif);
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+  }
+
+  .service-title {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--cream);
+    margin-bottom: 1rem;
+    line-height: 1.3;
+  }
+
+  .service-body {
+    font-size: 0.88rem;
+    color: var(--text-light);
+    line-height: 1.8;
+  }
+
+  /* CREDIBILITY */
+  .credibility {
+    background: var(--cream);
+    color: var(--dark);
+    padding: 8rem 3rem;
+  }
+
+  .credibility .section-eyebrow { color: var(--gold); }
+
+  .credibility .section-headline {
+    color: var(--dark);
+    font-style: italic;
+  }
+
+  .cred-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    align-items: center;
+  }
+
+  .cred-content {}
+
+  .cred-body {
+    font-size: 1rem;
+    color: #4A4035;
+    line-height: 1.9;
+    margin-bottom: 3rem;
+  }
+
+  .trusted-label {
+    font-size: 0.62rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+  }
+
+  .brand-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem 2rem;
+  }
+
+  .brand-list li {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--dark);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .brand-list li::before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 1px;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+
+  .cred-image-stack {
+    position: relative;
+    height: 500px;
+  }
+
+  .cred-img-main {
+    position: absolute;
+    right: 0; top: 0;
+    width: 75%;
+    height: 420px;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  .cred-img-accent {
+    position: absolute;
+    left: 0; bottom: 0;
+    width: 55%;
+    height: 300px;
+    object-fit: cover;
+    border: 4px solid var(--cream);
+  }
+
+  /* PHOTOS */
+  .photos {
+    background: var(--dark-mid);
+    padding: 8rem 3rem;
+  }
+
+  .photos-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 280px 280px;
+    gap: 3px;
+    max-width: 1200px;
+    margin: 4rem auto 0;
+  }
+
+  .photo-cell {
+    overflow: hidden;
+    position: relative;
+  }
+
+  .photo-cell.tall {
+    grid-row: 1 / 3;
+  }
+
+  .photo-cell img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+    filter: brightness(0.85);
+  }
+
+  .photo-cell:hover img {
+    transform: scale(1.04);
+    filter: brightness(1);
+  }
+
+  .photo-caption {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    font-size: 0.62rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .photo-cell:hover .photo-caption { opacity: 1; }
+
+  /* INQUIRY */
+  .inquiry {
+    background: var(--dark);
+    padding: 8rem 3rem;
+  }
+
+  .inquiry-inner {
+    max-width: 680px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .inquiry-headline {
+    font-family: var(--serif);
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--cream);
+    margin-bottom: 1rem;
+  }
+
+  .inquiry-sub {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    margin-bottom: 3rem;
+    letter-spacing: 0.05em;
+  }
+
+  .inquiry-form {
+    display: grid;
+    gap: 1rem;
+    text-align: left;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .form-field label {
+    font-size: 0.62rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .form-field input,
+  .form-field textarea {
+    background: var(--dark-surface);
+    border: 1px solid #3A3428;
+    border-radius: 0;
+    color: var(--cream);
+    font-family: var(--sans);
+    font-size: 0.9rem;
+    font-weight: 300;
+    padding: 0.85rem 1rem;
+    transition: border-color 0.3s;
+    outline: none;
+    width: 100%;
+    resize: none;
+  }
+
+  .form-field input:focus,
+  .form-field textarea:focus {
+    border-color: var(--gold);
+  }
+
+  .form-field input::placeholder,
+  .form-field textarea::placeholder {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+  }
+
+  .form-submit {
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  .form-note {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    margin-top: 1rem;
+    letter-spacing: 0.05em;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark-mid);
+    border-top: 1px solid #2A2520;
+    padding: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-brand {
+    font-family: var(--serif);
+    font-size: 1rem;
+    color: var(--gold-light);
+  }
+
+  .footer-tagline {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+  }
+
+  .footer-contact {
+    text-align: right;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+  }
+
+  .footer-contact a {
+    color: var(--text-light);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .footer-contact a:hover { color: var(--gold-light); }
+
+  /* DECORATIVE LINE */
+  .ornament {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .ornament-line {
+    flex: 1;
+    height: 1px;
+    background: var(--gold);
+    opacity: 0.4;
+  }
+
+  .ornament-diamond {
+    width: 6px;
+    height: 6px;
+    background: var(--gold);
+    transform: rotate(45deg);
+  }
+
+  /* SUCCESS MESSAGE */
+  .form-success {
+    display: none;
+    text-align: center;
+    padding: 3rem;
+    background: var(--dark-surface);
+    border: 1px solid var(--gold);
+  }
+
+  .form-success p {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  /* SCROLL FADE */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 1.2rem 1.5rem; }
+    .nav-links { display: none; }
+
+    .hero {
+      grid-template-columns: 1fr;
+      min-height: auto;
+    }
+
+    .hero-image-side {
+      height: 55vw;
+      min-height: 280px;
+    }
+
+    .hero-image-overlay {
+      background: linear-gradient(to bottom, transparent 50%, var(--dark) 100%);
+    }
+
+    .hero-content {
+      padding: 3rem 1.5rem 5rem;
+    }
+
+    .cred-layout {
+      grid-template-columns: 1fr;
+    }
+
+    .cred-image-stack { display: none; }
+
+    .services-grid {
+      grid-template-columns: 1fr;
+      gap: 2px;
+    }
+
+    .photos-grid {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto;
+    }
+
+    .photo-cell.tall { grid-row: auto; }
+
+    .form-row { grid-template-columns: 1fr; }
+
+    footer {
+      flex-direction: column;
+      gap: 1.5rem;
+      text-align: center;
+    }
+
+    .footer-contact { text-align: center; }
+
+    .problem, .services, .credibility, .photos, .inquiry {
+      padding: 5rem 1.5rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Concierge Poetry</a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#credibility">About</a></li>
+    <li><a href="#inquiry">Inquire</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-image-side">
+    <img src="210515369928368126.png" alt="Ryan Ashley at Ferragamo with typewriter">
+    <div class="hero-image-overlay"></div>
+  </div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Concierge Poetry &nbsp;&middot;&nbsp; Est. San Diego, CA</p>
+    <h1 class="hero-headline">
+      Hospitality That<br>
+      Feels <em>Human</em><br>
+      Again
+    </h1>
+    <p class="hero-sub">
+      Personalized poetry experiences for hotels, resorts, retreats, and short-term rentals that create emotional connection, memorable guest experiences, and lasting keepsakes.
+    </p>
+    <a href="#inquiry" class="btn-primary">Inquire About a Collaboration</a>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem">
+  <div class="fade-in">
+    <p class="problem-eyebrow">The Gap Nobody Is Talking About</p>
+    <div class="section-divider"></div>
+    <h2 class="problem-headline">
+      Most stays are well designed.<br>Few are deeply remembered.
+    </h2>
+    <p class="problem-body">
+      Guests remember how a place made them feel. Concierge Poetry transforms a fleeting stay into a personal keepsake through bespoke poetry inspired by each guest's experience. Not a amenity. A moment they carry home.
+    </p>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-header fade-in">
+    <p class="section-eyebrow">What We Offer</p>
+    <div class="section-divider"></div>
+    <h2 class="section-headline">The Experience</h2>
+  </div>
+  <div class="services-grid">
+    <div class="service-card fade-in">
+      <p class="service-num">01</p>
+      <h3 class="service-title">In-Room QR Poetry</h3>
+      <p class="service-body">
+        Guests scan a QR code and receive a personalized poem inspired by their stay. Written by a real human poet. Delivered to their inbox within 24 hours. Zero staff involvement.
+      </p>
+    </div>
+    <div class="service-card fade-in">
+      <p class="service-num">02</p>
+      <h3 class="service-title">Live Poetry Experiences</h3>
+      <p class="service-body">
+        On-site typewriter poetry for hotels, events, retreats, and luxury activations. A poet in residence who becomes part of the memory of the evening.
+      </p>
+    </div>
+    <div class="service-card fade-in">
+      <p class="service-num">03</p>
+      <h3 class="service-title">Guest Journey Poetry</h3>
+      <p class="service-body">
+        Custom poetry integrated into welcome amenities, guest books, checkout flows, and special occasions. Every touchpoint becomes a keepsake.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- CREDIBILITY -->
+<section class="credibility" id="credibility">
+  <div class="cred-layout">
+    <div class="cred-content fade-in">
+      <p class="section-eyebrow">The Poet Behind the Experience</p>
+      <div class="section-divider" style="margin: 0 0 2rem;"></div>
+      <h2 class="section-headline" style="font-family: var(--serif); font-size: clamp(1.8rem, 2.5vw, 2.4rem); font-weight: 300; color: var(--dark); margin-bottom: 1.5rem;">A decade of turning strangers into people who cry in the best way.</h2>
+      <p class="cred-body">
+        Ryan Ashley has created thousands of personalized poems for guests, brands, festivals, weddings, and luxury hospitality experiences across the country. His work has appeared inside some of the world's most discerning venues and events.
+      </p>
+      <p class="trusted-label">Trusted By</p>
+      <ul class="brand-list">
+        <li>Ritz-Carlton</li>
+        <li>St. Regis</li>
+        <li>Soho House</li>
+        <li>The Edition</li>
+        <li>Kimpton</li>
+        <li>The Standard</li>
+        <li>Ferragamo</li>
+        <li>Louis Vuitton</li>
+        <li>Vail Resorts</li>
+        <li>National Geographic</li>
+      </ul>
+    </div>
+    <div class="cred-image-stack fade-in">
+      <img class="cred-img-main" src="4476285305212876331.png" alt="Ryan Ashley at outdoor poetry event">
+      <img class="cred-img-accent" src="58578543133085221.png" alt="Typewriter with Ferragamo poem">
+    </div>
+  </div>
+</section>
+
+<!-- PHOTOS -->
+<section class="photos">
+  <div class="section-header fade-in">
+    <p class="section-eyebrow">In the Room. At the Table. In the Hands.</p>
+    <div class="section-divider"></div>
+    <h2 class="section-headline" style="color: var(--cream);">The Work</h2>
+  </div>
+  <div class="photos-grid">
+    <div class="photo-cell tall">
+      <img src="210515369928368126.png" alt="Ryan Ashley at Ferragamo">
+      <span class="photo-caption">Ferragamo &middot; Live Activation</span>
+    </div>
+    <div class="photo-cell">
+      <img src="4476285305212876331.png" alt="Outdoor poetry event">
+      <span class="photo-caption">Live Event</span>
+    </div>
+    <div class="photo-cell">
+      <img src="58578543133085221.png" alt="Poem on typewriter">
+      <span class="photo-caption">Bespoke Poem</span>
+    </div>
+    <div class="photo-cell">
+      <img src="_2.png" alt="Concierge Poetry stationery">
+      <span class="photo-caption">Guest Stationery</span>
+    </div>
+    <div class="photo-cell">
+      <img src="4592.png" alt="QR code card">
+      <span class="photo-caption">In-Room QR Experience</span>
+    </div>
+  </div>
+</section>
+
+<!-- INQUIRY -->
+<section class="inquiry" id="inquiry">
+  <div class="inquiry-inner">
+    <div class="fade-in">
+      <div class="ornament">
+        <div class="ornament-line"></div>
+        <div class="ornament-diamond"></div>
+        <div class="ornament-line"></div>
+      </div>
+      <h2 class="inquiry-headline">Let's Create Something<br>Your Guests Will Never Forget</h2>
+      <p class="inquiry-sub">Submit your vision. We'll craft an experience tailored to your property and guests.</p>
+    </div>
+
+    <form class="inquiry-form fade-in" id="contactForm" action="https://formspree.io/f/xpqkqveb" method="POST">
+      <div class="form-row">
+        <div class="form-field">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" placeholder="First &amp; Last" required>
+        </div>
+        <div class="form-field">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="you@property.com" required>
+        </div>
+      </div>
+      <div class="form-field">
+        <label for="property">Property or Brand</label>
+        <input type="text" id="property" name="property" placeholder="Hotel, resort, STR portfolio, brand...">
+      </div>
+      <div class="form-field">
+        <label for="message">Tell Us About Your Vision</label>
+        <textarea id="message" name="message" rows="5" placeholder="What are you envisioning? What kind of experience do you want to create for your guests?"></textarea>
+      </div>
+      <div class="form-submit">
+        <button type="submit" class="btn-primary">Send Inquiry</button>
+        <p class="form-note">poet@conciergepoetry.com &nbsp;&middot;&nbsp; 619-994-2321</p>
+      </div>
+    </form>
+
+    <div class="form-success" id="formSuccess">
+      <p>"Something about to be written just for you."</p>
+      <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 1rem; font-family: var(--sans); font-style: normal;">We'll be in touch within 24 hours.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <p class="footer-brand">Concierge Poetry</p>
+    <p class="footer-tagline">Poetic moments, at your service</p>
+  </div>
+  <div class="footer-contact">
+    <p><a href="mailto:poet@conciergepoetry.com">poet@conciergepoetry.com</a></p>
+    <p><a href="tel:6199942321">619-994-2321</a></p>
+    <p style="margin-top: 0.5rem;">San Diego Born &nbsp;&middot;&nbsp; Global Reach</p>
+    <p style="margin-top: 0.25rem; font-size: 0.7rem; color: #4A4035;">Copyright 2026 &nbsp;&middot;&nbsp; The Poets Tree LLC</p>
+  </div>
+</footer>
+
+<script>
+  // Scroll fade
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Form submit
+  const form = document.getElementById('contactForm');
+  const success = document.getElementById('formSuccess');
+
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          form.style.display = 'none';
+          success.style.display = 'block';
+        }
+      } catch(err) {
+        form.submit();
+      }
+    });
+  }
+</script>
+</body>
+</html>
