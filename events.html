@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Concierge Poetry · Live Typewriter Poetry for Events</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2b1d1f;--wine:#5e1b26;
+    --gold:#b08a3e;
+    --gold-2:#cfae6b;
+    --paper:#f3eee8;
+    --paper-2:#ebe4d4;
+    --muted:#6b645a;
+    --line:#ddd3c0;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{background:var(--paper);color:var(--ink);font-family:'Courier Prime','Courier New',monospace;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:620px;margin:0 auto;padding:0 22px}
+  .serif{font-family:'Cormorant Garamond',Georgia,serif}
+  img{display:block;width:100%;height:auto}
+
+  header{padding:36px 0 8px;text-align:center}
+  header .logo{max-width:300px;margin:0 auto;border-radius:8px}
+  .hero{padding:12px 0 44px;text-align:center}
+  .hero h1{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-style:italic;color:var(--wine);font-size:42px;line-height:1.08;margin:18px 0 14px}
+  .hero p{color:var(--muted);margin:0 auto 26px;max-width:460px}
+  .hero img{border-radius:16px;margin:0 0 28px}
+  .btn{display:block;text-align:center;text-decoration:none;font-weight:600;border-radius:0;padding:14px 20px;letter-spacing:.06em;font-size:17px}
+  .btn-dark{background:var(--wine);color:var(--paper)}
+  .btn-gold{background:var(--gold);color:#fff}
+  .btn-outline{border:1.5px solid var(--ink);color:var(--ink)}
+  .stack .btn{margin-bottom:12px}
+
+  section{padding:46px 0;border-top:1px solid var(--line)}
+  h2{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-style:italic;color:var(--wine);font-size:32px;line-height:1.15;margin:0 0 10px}
+  .kicker{font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+  .lead{color:var(--muted);margin:0 0 22px}
+  .rule{width:56px;height:1px;background:var(--gold);margin:0 0 18px}
+
+  ol.steps{list-style:none;padding:0;margin:0;counter-reset:s}
+  ol.steps li{counter-increment:s;display:flex;gap:14px;align-items:flex-start;margin-bottom:16px}
+  ol.steps li::before{content:counter(s);font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;flex:0 0 36px;height:36px;border-radius:50%;border:1px solid var(--gold);color:var(--gold);display:flex;align-items:center;justify-content:center}
+
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .grid div{background:#fffdf8;border:1px solid var(--line);border-radius:12px;padding:14px 14px}
+  .grid strong{display:block;font-size:16px}
+  .grid span{font-size:14px;color:var(--muted);line-height:1.45;display:block;margin-top:2px}
+
+  .dark{background:var(--wine);color:var(--paper);border-top:none}
+  .dark h2{color:var(--paper)}
+  .dark .kicker{color:var(--gold-2)}
+  .dark .lead{color:#bdb5a6}
+  .brands{list-style:none;padding:0;margin:0;columns:2;column-gap:22px}
+  .brands li{break-inside:avoid;padding:8px 0;border-bottom:1px solid #7a3340}
+  .brands b{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;display:block;line-height:1.2;color:var(--gold-2)}
+  .brands small{color:#bdb5a6;font-size:13px}
+
+  .quote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:26px;line-height:1.3;margin:0 0 18px}
+  .photo{border-radius:14px;margin:0 0 22px}
+
+  .contact p{margin:0 0 6px}
+  .contact .big{font-family:'Courier Prime',monospace;font-size:19px}
+  .social{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+  .social a{border:1px solid var(--line);border-radius:999px;padding:8px 16px;text-decoration:none;color:var(--ink);font-size:14px;background:#fffdf8}
+  footer{text-align:center;padding:30px 0 46px;color:var(--muted);font-size:14px}
+  footer a{color:var(--ink)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap"><img class="logo" src="logo.jpg" alt="Concierge Poetry: poetic moments at your service"></div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <h1>Live typewriter poetry for unforgettable events.</h1>
+    <p>Every guest shares a word, a name, or a story. I type them an original poem on the spot. They leave with a signed keepsake they'll actually keep.</p>
+    <img src="event.jpg" alt="Ryan Ashley typing poems by candlelight at an evening event">
+    <div class="stack">
+      <a class="btn btn-dark" href="#book">Check your date</a>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">The experience</div>
+    <h2>Human connection is the ultimate luxury.</h2>
+    <div class="rule"></div>
+    <ol class="steps">
+      <li><span><strong>A guest sits down</strong> at my vintage typewriter and shares a moment, a person, or a feeling.</span></li>
+      <li><span><strong>I type an original poem</strong> in a few minutes, written only for them.</span></li>
+      <li><span><strong>They leave with a signed keepsake,</strong> and your event becomes the one they remember.</span></li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">Perfect for</div>
+    <h2>Any room worth remembering.</h2>
+    <div class="rule"></div>
+    <div class="grid">
+      <div><strong>Weddings</strong><span>Poems for the couple and every guest</span></div>
+      <div><strong>Brand activations</strong><span>Bespoke poems in your brand's voice</span></div>
+      <div><strong>Hotels</strong><span>A signature guest amenity or residency</span></div>
+      <div><strong>Galas &amp; charity</strong><span>Poems that carry the evening's purpose</span></div>
+      <div><strong>Corporate events</strong><span>Real connection at the party</span></div>
+      <div><strong>Holiday parties</strong><span>Gifts guests take home</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap">
+    <div class="kicker">Past work</div>
+    <h2>Brands and stages.</h2>
+    <p class="lead">25 years at the typewriter, from sidewalks to the world's best rooms.</p>
+    <ul class="brands">
+      <li><b>Louis Vuitton</b><small>Paris</small></li>
+      <li><b>St. Regis</b><small>Miami Beach</small></li>
+      <li><b>Ritz-Carlton</b><small>Luxury hotels</small></li>
+      <li><b>Soho House</b><small>Members' clubs</small></li>
+      <li><b>Ferragamo</b><small>Brand activation</small></li>
+      <li><b>Kimpton Hotels</b><small>Residency, nationwide</small></li>
+      <li><b>AREA15</b><small>Residency, Las Vegas</small></li>
+      <li><b>Coachella</b><small>Indio, CA</small></li>
+      <li><b>Art Basel</b><small>Miami</small></li>
+      <li><b>House of Yes</b><small>Brooklyn</small></li>
+      <li><b>IMEX</b><small>Las Vegas</small></li>
+      <li><b>Celebrity weddings</b><small>Private</small></li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <img class="photo" src="typing.jpg" alt="Ryan's hands at a vintage typewriter">
+    <p class="quote">In a fast, digital world, a poem typed just for you is a rare thing to hold.</p>
+    <p class="lead" style="margin-bottom:22px">Each poem captures the feeling of the moment and turns it into something tangible. It's a reminder of real connection that guests carry home long after the night ends.</p>
+    <a class="btn btn-outline" href="https://www.youtube.com/watch?v=dNlGoiDQZBA">Watch me at work</a>
+  </div>
+</section>
+
+<section id="book" class="contact">
+  <div class="wrap">
+    <div class="kicker">Book</div>
+    <h2>Let's make your event unforgettable.</h2>
+    <p class="lead">Based in San Diego. Available for travel nationwide. Packages tailored to your guest count and hours.</p>
+    <div class="stack">
+      <a class="btn btn-gold" href="mailto:RyanAshleyThePoet@gmail.com?subject=Event%20inquiry">Email an inquiry</a>
+      <a class="btn btn-outline" href="sms:+16198278917">Text 619-827-8917</a>
+    </div>
+    <p class="big" style="text-align:center;margin-top:10px">RyanAshleyThePoet@gmail.com</p>
+    <div class="social">
+      <a href="https://www.instagram.com/ryanashley_thepoet/">Instagram</a>
+      <a href="https://www.linkedin.com/in/ryan-ashley-the-poet-098226181/">LinkedIn</a>
+      <a href="https://www.youtube.com/watch?v=dNlGoiDQZBA">Video</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div><a href="index.html">Order a personal poem</a></div>
+  <div style="margin-top:6px">Concierge Poetry · Ryan Ashley, Typewriter Poet</div>
+</footer>
+
+</body>
+</html>
