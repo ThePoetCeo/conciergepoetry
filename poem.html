@@ -3,197 +3,220 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ryan Ashley · Typewriter Poet</title>
+<title>Order a Poem · Ryan Ashley, Typewriter Poet</title>
+<meta name="description" content="A poem, typed on a vintage typewriter, written just for you. Pick one, pay with Venmo, and tell me who it's for.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --cream:#f3eee8;
-    --paper:#fbf8f3;
-    --ink:#2b1d1f;
+    --cream:#f6f1ea;
+    --paper:#fffdf9;
+    --ink:#241719;
     --wine:#5e1b26;
-    --gold:#a8823a;
-    --muted:#7a6a63;
+    --gold:#8a6a2a;
+    --muted:#5a4d47;
     --line:#d9cfc2;
   }
   *{box-sizing:border-box}
-  html,body{margin:0;padding:0}
+  html{scroll-behavior:smooth}
   body{
+    margin:0;
     background:var(--cream);
     color:var(--ink);
-    font-family:'Courier Prime','Courier New',monospace;
-    font-size:16px;
-    line-height:1.7;
+    font-family:'Lora',Georgia,'Times New Roman',serif;
+    font-size:18px;
+    line-height:1.6;
     -webkit-font-smoothing:antialiased;
   }
-  .wrap{max-width:520px;margin:0 auto;padding:0 26px}
+  .wrap{max-width:560px;margin:0 auto;padding:0 22px}
   img{display:block;width:100%;height:auto}
   a{color:inherit}
-  h1,h2{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;color:var(--wine);margin:0}
-  h1{font-size:40px;line-height:1.1;font-style:italic}
-  h2{font-size:30px;line-height:1.15;font-style:italic;margin-bottom:22px}
-  .label{font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin:0 0 10px}
-  .orn{display:block;text-align:center;color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:20px;letter-spacing:.6em;padding:46px 0 42px;margin-left:.6em}
-  .muted{color:var(--muted)}
+  h1,h2{font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;color:var(--wine);margin:0;line-height:1.1}
+  h1{font-size:48px;font-style:italic}
+  h2{font-size:34px;font-style:italic;margin-bottom:14px}
+  p{margin:0 0 14px}
   .center{text-align:center}
+  .muted{color:var(--muted)}
+  .label{font-size:13px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin:0 0 8px}
+  section{padding:44px 0}
+  .rule{border:0;border-top:1px solid var(--line);margin:0}
 
-  header{padding:34px 0 0;text-align:center}
-  .logo{max-width:260px;margin:0 auto}
-  .hero{text-align:center;padding-top:10px}
-  .portrait{max-width:300px;margin:6px auto 30px;aspect-ratio:4/5;object-fit:cover;border:1px solid var(--line);padding:8px;background:var(--paper)}
-  .hero p{margin:16px auto 26px;max-width:400px}
-  .cta{
-    display:inline-block;
-    font-family:'Courier Prime',monospace;
-    text-decoration:none;
-    color:var(--cream);
-    background:var(--wine);
-    padding:13px 26px;
-    letter-spacing:.08em;
+  /* top bar */
+  .top{padding:14px 0;border-bottom:1px solid var(--line);background:var(--paper)}
+  .top .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:15px}
+  .top a{text-decoration:none;color:var(--wine);font-weight:600}
+  .top img{width:auto;height:40px}
+
+  /* hero */
+  .hero{padding:38px 0 8px;text-align:center}
+  .hero p{font-size:19px;max-width:440px;margin:14px auto 0}
+
+  /* poem choices */
+  .choices{list-style:none;margin:22px 0 0;padding:0}
+  .choices li{margin:0 0 14px}
+  .choice{
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+    text-decoration:none;background:var(--paper);
+    border:2px solid var(--wine);border-radius:10px;padding:16px 18px;
   }
-  .cta.ghost{background:transparent;color:var(--wine);border:1px solid var(--wine)}
+  .choice:active{background:#f0e6df}
+  .choice .t{font-size:20px;font-weight:700;color:var(--ink);line-height:1.25}
+  .choice .d{display:block;font-size:16px;font-weight:400;color:var(--muted);margin-top:2px}
+  .choice .p{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:700;color:var(--wine);white-space:nowrap}
+  .note{font-size:16px;color:var(--muted);margin-top:6px;text-align:center}
 
-  .don{display:flex;gap:12px;justify-content:center;align-items:stretch}
-  .don a{flex:1;max-width:120px;text-decoration:none;border:1px solid var(--wine);color:var(--wine);padding:16px 0;font-size:22px;font-weight:700;display:flex;flex-direction:column;align-items:center;justify-content:center}
-  .don a.sug{background:var(--wine);color:var(--cream);transform:scale(1.08)}
-  .don small{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:400;margin-top:2px}
-  /* menu */
-  .menu{list-style:none;margin:0;padding:0}
-  .menu li{margin:0 0 22px}
-  .menu a{text-decoration:none;display:flex;align-items:baseline;gap:8px}
-  .menu .name{white-space:nowrap;font-weight:700}
-  .menu .dots{flex:1;border-bottom:1px dotted var(--muted);transform:translateY(-5px)}
-  .menu .price{color:var(--wine);font-weight:700}
-  .menu .desc{display:block;font-size:14px;color:var(--muted);margin-top:2px}
-  .menu .pay{display:inline-block;font-size:13px;color:var(--gold);letter-spacing:.06em;margin-top:2px}
-  .bottle{margin:4px 0 26px;border:1px solid var(--line);padding:8px;background:var(--paper)}
-  .steps{margin:30px 0 0;padding:20px 0 0;border-top:1px solid var(--line);font-size:15px}
-  .steps p{margin:0 0 8px}
+  /* buttons */
+  .btn{
+    display:block;text-align:center;text-decoration:none;font-weight:700;font-size:18px;
+    background:var(--wine);color:#fff;border-radius:10px;padding:16px 20px;margin:0 0 12px;
+  }
+  .btn.ghost{background:transparent;color:var(--wine);border:2px solid var(--wine)}
 
-  /* poems */
-  .poem{margin:0 0 34px}
-  .poem .t{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:21px;color:var(--wine);margin:0 0 6px}
-  .poem p{margin:0}
-  .typed{background:var(--paper);border:1px solid var(--line);padding:26px 24px;box-shadow:0 14px 30px -24px rgba(43,29,31,.5)}
-  .typed p{margin:0 0 14px}
-  .sig{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:24px;color:var(--wine);text-align:right;margin:4px 0 0}
-  .framed{border:1px solid var(--line);padding:8px;background:var(--paper);margin:0 0 26px}
+  /* steps */
+  .steps{counter-reset:s;list-style:none;margin:0 0 26px;padding:0}
+  .steps li{counter-increment:s;position:relative;padding:0 0 14px 48px;font-size:19px}
+  .steps li::before{
+    content:counter(s);position:absolute;left:0;top:-2px;width:34px;height:34px;border-radius:50%;
+    background:var(--wine);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:17px;
+  }
 
-  footer{padding:10px 0 56px;text-align:center;font-size:14px}
-  footer .links a{margin:0 10px;text-decoration:none;border-bottom:1px solid var(--gold)}
-  footer .sm{color:var(--muted);margin-top:22px;font-size:13px}
+  /* delivery */
+  .rows{list-style:none;margin:0;padding:0}
+  .rows li{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-size:18px}
+  .rows a{text-decoration:none;display:flex;justify-content:space-between;gap:12px;width:100%}
+  .rows .p{font-weight:700;color:var(--wine)}
+
+  /* about */
+  .framed{border:1px solid var(--line);padding:8px;background:var(--paper);margin:0 0 22px}
+  .sig{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:700;font-size:30px;color:var(--wine);margin:0}
+
+  /* tip */
+  .tip{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:22px 20px;text-align:center}
+  .tip h2{font-size:28px;margin-bottom:6px}
+  .tipbtns{display:flex;gap:10px;justify-content:center;margin-top:14px}
+  .tipbtns a{flex:1;max-width:110px;text-decoration:none;border:2px solid var(--wine);color:var(--wine);font-weight:700;font-size:20px;padding:12px 0;border-radius:10px}
+
+  /* back to main site */
+  .main{background:var(--wine);color:#fff;text-align:center;padding:40px 0}
+  .main h2{color:#fff;font-size:30px}
+  .main p{color:#f0e3e0}
+  .main .btn{background:#fff;color:var(--wine);margin-top:18px}
+
+  footer{padding:30px 0 50px;text-align:center;font-size:16px;color:var(--muted)}
+  footer a{margin:0 8px;color:var(--wine);font-weight:600}
 </style>
 </head>
 <body>
 
-<header>
-  <div class="wrap"><img class="logo" src="logo.jpg" alt="Concierge Poetry: poetic moments at your service"></div>
-</header>
-
-<div class="hero">
+<div class="top">
   <div class="wrap">
-    <img class="portrait" src="hero.jpg" alt="Ryan Ashley at his typewriter beside a sign reading A poem for you">
-    <h1>A poem, written<br>just for you.</h1>
-    <p>You found my card. Maybe you passed my typewriter in Carlsbad Village. Here's how to get a poem of your own.</p>
-    <a class="cta" href="#order">Order a poem</a>
+    <img src="logo.jpg" alt="Concierge Poetry">
+    <a href="/">Concierge Poetry home &rarr;</a>
   </div>
 </div>
 
-<span class="orn">✦ ✦ ✦</span>
-
-<section id="donate">
-  <div class="wrap center">
-    <div class="label">Got a poem today?</div>
-    <h2>Leave a donation.</h2>
-    <div class="don">
-      <a class="sug" href="https://venmo.com/ryanashleythepoet?txn=pay&amount=20&note=Poem%20donation">$20<small>suggested</small></a>
-      <a href="https://venmo.com/ryanashleythepoet?txn=pay&amount=50&note=Poem%20donation">$50</a>
-      <a href="https://venmo.com/ryanashleythepoet?txn=pay&amount=100&note=Poem%20donation">$100</a>
-    </div>
-    <p style="margin-top:16px"><a class="cta ghost" href="https://venmo.com/u/ryanashleythepoet">Other amount</a></p>
-    <p class="muted" style="font-size:14px;margin-top:8px">Venmo @ryanashleythepoet</p>
-  </div>
-</section>
-
-<span class="orn">✦ ✦ ✦</span>
-
-<section id="order">
+<div class="hero">
   <div class="wrap">
-    <div class="label">The menu</div>
-    <h2>Tell me who it's for.</h2>
-    <ul class="menu">
-      <li><a href="https://venmo.com/ryanashleythepoet?txn=pay&amount=10&note=Digital%20poem"><span class="name">Digital</span><span class="dots"></span><span class="price">$10</span></a><span class="desc">A photo of your typed poem, sent to your phone.</span></li>
-      <li><a href="https://venmo.com/ryanashleythepoet?txn=pay&amount=20&note=Printed%20poem"><span class="name">Printed</span><span class="dots"></span><span class="price">$20</span></a><span class="desc">Printed and ready to frame.</span></li>
-      <li><a href="https://venmo.com/ryanashleythepoet?txn=pay&amount=50&note=Original%20typewritten%20poem"><span class="name">Typewritten original</span><span class="dots"></span><span class="price">$50</span></a><span class="desc">The one and only, typed and signed.</span></li>
-      <li><a href="https://venmo.com/ryanashleythepoet?txn=pay&amount=60&note=Framed%20poem"><span class="name">Framed</span><span class="dots"></span><span class="price">$60</span></a><span class="desc">Your original, framed and ready to give.</span></li>
-      <li><a href="https://venmo.com/ryanashleythepoet?txn=pay&amount=100&note=Poem%20in%20a%20bottle"><span class="name">Poem in a bottle</span><span class="dots"></span><span class="price">$100</span></a><span class="desc">Rolled and sealed in glass with a cork.</span></li>
-    </ul>
-    <img class="bottle" src="bottle.jpg" alt="A typewritten poem beside a corked glass bottle">
+    <h1>A poem, written just for you.</h1>
+    <p>Typed on a vintage typewriter by a real poet in Carlsbad. Pick one, pay with Venmo, then tell me who it's for.</p>
+  </div>
+</div>
 
-    <div class="label" style="margin-top:8px">Delivery</div>
-    <ul class="menu">
-      <li><a href="#"><span class="name">Pick up in the Village</span><span class="dots"></span><span class="price">free</span></a></li>
-      <li><a href="https://venmo.com/ryanashleythepoet?txn=pay&amount=20&note=Delivery%20North%20County"><span class="name">North County SD</span><span class="dots"></span><span class="price">+$20</span></a></li>
-      <li><a href="https://venmo.com/ryanashleythepoet?txn=pay&amount=40&note=Delivery%20San%20Diego"><span class="name">San Diego proper</span><span class="dots"></span><span class="price">+$40</span></a></li>
+<section id="order" style="padding-top:26px">
+  <div class="wrap">
+    <div class="label center">Step 1</div>
+    <h2 class="center">Choose your poem</h2>
+    <ul class="choices">
+      <li><a class="choice" href="https://venmo.com/ryanashleythepoet?txn=pay&amount=10&note=Digital%20poem">
+        <span class="t">Digital<span class="d">A photo of your typed poem, sent to your phone</span></span><span class="p">$10</span></a></li>
+      <li><a class="choice" href="https://venmo.com/ryanashleythepoet?txn=pay&amount=20&note=Printed%20poem">
+        <span class="t">Printed<span class="d">Printed and ready to frame</span></span><span class="p">$20</span></a></li>
+      <li><a class="choice" href="https://venmo.com/ryanashleythepoet?txn=pay&amount=50&note=Original%20typewritten%20poem">
+        <span class="t">Typewritten original<span class="d">The one and only, typed and signed</span></span><span class="p">$50</span></a></li>
+      <li><a class="choice" href="https://venmo.com/ryanashleythepoet?txn=pay&amount=60&note=Framed%20poem">
+        <span class="t">Framed<span class="d">Your original, framed and ready to give</span></span><span class="p">$60</span></a></li>
+      <li><a class="choice" href="https://venmo.com/ryanashleythepoet?txn=pay&amount=100&note=Poem%20in%20a%20bottle">
+        <span class="t">Poem in a bottle<span class="d">Rolled and sealed in glass with a cork</span></span><span class="p">$100</span></a></li>
     </ul>
-
-    <div class="steps">
-      <p>1. Tap a poem above to pay on Venmo.</p>
-      <p>2. Text me who it's for: a name, a memory, a feeling.</p>
-      <p>3. I type it and send it your way.</p>
-      <p style="margin-top:20px" class="center"><a class="cta ghost" href="sms:+16198278917">Text 619-827-8917</a></p>
-      <p class="center" style="margin-top:12px"><a class="cta ghost" href="mailto:poet@conciergepoetry.com?subject=Poem%20request">Email poet@conciergepoetry.com</a></p>
-      <p class="center muted" style="font-size:14px;margin-top:10px">Venmo @ryanashleythepoet</p>
-    </div>
+    <p class="note">Tapping a poem opens Venmo (@ryanashleythepoet).</p>
   </div>
 </section>
 
-<span class="orn">✦ ✦ ✦</span>
+<hr class="rule">
 
-<section>
-  <div class="wrap center">
-    <div class="label">In person</div>
-    <h2>Weekends in Carlsbad Village.</h2>
-    <p>Look for the typewriter near the ice cream shop. Sit, share a little, and I'll write you a poem on the spot. Pay what you feel.</p>
+<section id="after">
+  <div class="wrap">
+    <div class="label center">Step 2</div>
+    <h2 class="center">Then text me</h2>
+    <ol class="steps">
+      <li>Pay on Venmo using the poem you chose above.</li>
+      <li>Text me who it's for: a name, a memory, a feeling.</li>
+      <li>I type it and send it your way.</li>
+    </ol>
+    <a class="btn" href="sms:+16198278917">Text 619-827-8917</a>
+    <a class="btn ghost" href="mailto:poet@conciergepoetry.com?subject=Poem%20request">Email poet@conciergepoetry.com</a>
   </div>
 </section>
 
-<span class="orn">✦ ✦ ✦</span>
+<hr class="rule">
+
+<section id="delivery">
+  <div class="wrap">
+    <div class="label">Printed, original, framed or bottle</div>
+    <h2>Delivery</h2>
+    <ul class="rows">
+      <li><span>Pick up in Carlsbad Village</span><span class="p">free</span></li>
+      <li><a href="https://venmo.com/ryanashleythepoet?txn=pay&amount=20&note=Delivery%20North%20County"><span>North County San Diego</span><span class="p">+$20</span></a></li>
+      <li><a href="https://venmo.com/ryanashleythepoet?txn=pay&amount=40&note=Delivery%20San%20Diego"><span>San Diego proper</span><span class="p">+$40</span></a></li>
+    </ul>
+  </div>
+</section>
+
+<hr class="rule">
 
 <section id="about">
   <div class="wrap">
     <div class="label">About the poet</div>
-    <h2>Why I do this.</h2>
+    <h2>Why I do this</h2>
     <img class="framed" src="collage.jpg" alt="Ryan Ashley typing poems at hotels and events">
-    <div class="typed">
-      <p>I've been writing poems on a typewriter for 25 years. On sidewalks for strangers, and for guests at the St. Regis, the Ritz-Carlton, and Soho House.</p>
-      <p>After losing my mother, and then my dog Rio, I found that the only home I really know is this one: someone sits down, shares a piece of their story, and I hand them back a poem.</p>
-      <p>Every poem you order helps me keep doing it.</p>
-      <p class="sig">Ryan</p>
+    <p>I've been writing poems on a typewriter for 25 years. On sidewalks for strangers, and for guests at the St. Regis, the Ritz-Carlton, and Soho House.</p>
+    <p>After losing my mother, and then my dog Rio, I found that the only home I really know is this one: someone sits down, shares a piece of their story, and I hand them back a poem.</p>
+    <p>Every poem you order helps me keep doing it.</p>
+    <p class="sig">Ryan</p>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="tip">
+      <div class="label">Already got a poem?</div>
+      <h2>Leave a tip</h2>
+      <p class="muted" style="margin:0">Thank you. It keeps the typewriter going.</p>
+      <div class="tipbtns">
+        <a href="https://venmo.com/ryanashleythepoet?txn=pay&amount=20&note=Poem%20tip">$20</a>
+        <a href="https://venmo.com/ryanashleythepoet?txn=pay&amount=50&note=Poem%20tip">$50</a>
+        <a href="https://venmo.com/u/ryanashleythepoet">Other</a>
+      </div>
     </div>
   </div>
 </section>
 
-<span class="orn">✦ ✦ ✦</span>
-
-<section id="events">
-  <div class="wrap center">
-    <div class="label">Events</div>
-    <h2>Bring the typewriter to your event.</h2>
-    <p>Weddings, galas, hotels, and brand activations. Every guest leaves with a poem written just for them.</p>
-    <p class="muted" style="font-size:14px">St. Regis · Ritz-Carlton · Soho House · Louis Vuitton · Ferragamo</p>
-    <p style="margin-top:24px"><a class="cta" href="events.html">See the event brochure</a></p>
+<div class="main">
+  <div class="wrap">
+    <div class="label" style="color:#e6d3a3">Hotels, weddings and events</div>
+    <h2>Want a poet at your event?</h2>
+    <p>I bring the typewriter to hotels, weddings, galas and brand activations. Every guest leaves with a poem written just for them.</p>
+    <a class="btn" href="/">Visit Concierge Poetry</a>
+    <p style="font-size:15px;margin:0">St. Regis · Ritz-Carlton · Soho House · Louis Vuitton · Ferragamo</p>
   </div>
-</section>
-
-<span class="orn">✦ ✦ ✦</span>
+</div>
 
 <footer>
   <div class="wrap">
-    <div class="links"><a href="#">Substack</a><a href="https://www.instagram.com/ryanashley_thepoet/">Instagram</a></div>
-    <div style="margin-top:20px">poet@conciergepoetry.com · 619-827-8917</div>
-    <div class="sm">Ryan Ashley · Typewriter Poet · Carlsbad, California</div>
+    <p><a href="https://substack.com/@ashispoetry">Substack</a><a href="https://www.instagram.com/ryanashley_thepoet/">Instagram</a></p>
+    <p style="margin:0">poet@conciergepoetry.com · 619-827-8917</p>
+    <p style="margin:6px 0 0;font-size:14px">Ryan Ashley · Typewriter Poet · Carlsbad, California</p>
   </div>
 </footer>
 
